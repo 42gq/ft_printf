@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_litoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/15 00:59:22 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/20 00:57:00 by gquerre          ###   ########.fr       */
+/*   Created: 2017/09/20 01:28:46 by gquerre           #+#    #+#             */
+/*   Updated: 2017/09/20 01:54:22 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_sign(int n)
+static int	ft_sign(long int n)
 {
-	int		negative;
+	int	neg;
 
 	if (n < 0)
-		negative = 1;
+		neg = 1;
 	else
-		negative = 0;
-	return (negative);
+		neg = 0;
+	return (neg);
 }
 
-char		*ft_itoa(int n)
+char		*ft_litoa(long int n)
 {
-	int		tmp;
-	int		len;
-	int		neg;
-	char	*str;
+	long int	tmp;
+	int			len;
+	int			neg;
+	char		*str;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
+	if (n == -4294967296)
+		return (ft_strdup("-4294967296"));
 	tmp = n;
 	neg = ft_sign(n);
 	len = (neg) ? 3 : 2;

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_ssitoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/15 00:59:22 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/20 00:57:00 by gquerre          ###   ########.fr       */
+/*   Created: 2017/09/20 01:38:59 by gquerre           #+#    #+#             */
+/*   Updated: 2017/09/20 01:56:34 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_sign(int n)
+static int	ft_sign(char n)
 {
 	int		negative;
 
@@ -23,15 +23,15 @@ static int	ft_sign(int n)
 	return (negative);
 }
 
-char		*ft_itoa(int n)
+char		*ft_ssitoa(char n)
 {
-	int		tmp;
-	int		len;
-	int		neg;
-	char	*str;
+	char		tmp;
+	int			len;
+	int			neg;
+	char		*str;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
+	if (n == -128)
+		return (ft_strdup("-128"));
 	tmp = n;
 	neg = ft_sign(n);
 	len = (neg) ? 3 : 2;

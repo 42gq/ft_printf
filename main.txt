@@ -1,0 +1,11 @@
+#include "ft_printf.h"
+
+int	main()
+{
+	int i;
+
+	i = -500000;
+	printf("|%ld| printf\n", i);
+	ft_printf("|%ld|\n", i);
+	return (0);
+}

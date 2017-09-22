@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/09 03:31:43 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/19 03:25:27 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/20 00:56:31 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,13 +156,13 @@ char	*ft_stockitoa(int a)
 	return (str);
 }
 
-int		ft_handle_int(int v_arg, t_env *e)
+int		ft_handle_int(t_env *e)
 {
 	char	*add;
 	
 	add = NULL;
 
-	if (!(add = ft_stockitoa(v_arg)))
+	if (!(add = ft_stockitoa(e->nbrs)))
 		return (-1);
 	add = ft_apply_options(add, e);
 	if (!(e->stock = ft_strjoinfree(e->stock, add)))

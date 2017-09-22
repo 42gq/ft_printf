@@ -56,6 +56,8 @@ char	*ft_precichar(char *str, t_env *e)
 char	*ft_apply_optionschar(char *str, t_env *e)
 {
 	str = ft_precichar(str, e);
+	if (e->minus)
+		str = ft_apply_minus(str);
 	return (str);
 }
 

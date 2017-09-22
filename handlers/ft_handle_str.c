@@ -19,9 +19,8 @@ char	*ft_preci_str(char *str, t_env *e)
 
 	j = 0;
 	k = 0;
-	i = 0;
 	i = ft_strlen(str);
-	if (e->preci && i > e->preci)
+	if (e->preci_size && i > e->preci)
 	{
 		str = ft_keep_size(str, e->preci);
 		i = e->preci;
@@ -43,7 +42,7 @@ char	*ft_apply_optionsstr(char *str, t_env *e)
 {
 	str = ft_preci_str(str, e);
 	if (e->minus)
-		str = (e->preci)? ft_apply_minus(str) : str;
+		str = ft_apply_minus(str);
 	return (str);
 }
 

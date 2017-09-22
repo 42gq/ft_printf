@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:18:37 by abassibe          #+#    #+#             */
-/*   Updated: 2017/09/19 05:02:03 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/20 03:28:41 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -960,7 +960,7 @@ int		main(void)
 	getchar();
 
 	printf("------------- String sans unicode ---------------\n");
-	printf("%10s is a string et %10d|\n", str, c);
+	printf("%10s is a string et %10d|printf\n", str, c);
 	ft_printf("%10s is a string et %10d|\n", str, c);
 	printf("%.4s|.4 printf\n", str);
 	ft_printf("%.4s|.4\n", str);

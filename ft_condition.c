@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 07:44:08 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/19 02:50:40 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/22 01:30:12 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	ft_condition2(char *str, t_env *e)
 	k = ft_signs(&str[i + k + 1], e);
 	if (e->null == 0 && e->size_num == 0)
 		k = 0;
-	//printf("i = %i, size_num = %i, e->null = %i\n", i, e->size_num, e->null);
+//	printf("i = %i, size_num = %i, e->l = %i\n", i, e->size_num, e->l);
 	e->size_arg += (-i) + e->size_num + 1 + k;
 }
 
@@ -88,7 +88,10 @@ int		ft_condition(char *str, t_env *e, int check)
 			if (e->h < 0 || e->l < 0)
 				return (-4);
 			if (e->size_arg - ft_somme_option(e) != 0)
+			{
+			//	printf("size arg = %i && options = %i\n", e->size_arg, ft_somme_option(e));
 				return (-5);
+			}
 		}
 		return (1);
 	}

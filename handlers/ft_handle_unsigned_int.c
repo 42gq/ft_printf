@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/12 02:53:42 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/16 03:17:48 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/22 01:56:46 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ char	*ft_stockutoa(unsigned int a, t_env *e)
 	return (str);
 }
 
-int		ft_handle_unsigned_int(unsigned int v_arg, t_env *e)
+int		ft_handle_unt(t_env *e)
 {
 	char	*add;
 
 	add = NULL;
-	if (!(add = ft_stockutoa(v_arg, e)))
+	if (!(add = ft_stockutoa(e->nbr, e)))
 				return (-1);
 	if (e->condi > 64 && e->condi < 91)
 		ft_capitalize(add);

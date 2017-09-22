@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handle_longint.c                                :+:      :+:    :+:   */
+/*   ft_handle_ssint.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/31 07:02:26 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/20 03:22:08 by gquerre          ###   ########.fr       */
+/*   Created: 2017/09/20 02:45:44 by gquerre           #+#    #+#             */
+/*   Updated: 2017/09/20 02:46:16 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	*ft_stocklongitoa(long a)
+char	*ft_stockssitoa(char a)
 {
 	char	*str;
 
-	str = ft_litoa(a);
+	str = ft_ssitoa(a);
 	return (str);
 }
 
-int		ft_handle_longint(t_env *e)
+int		ft_handle_ssint(t_env *e)
 {
 	char	*add;
 
 	add = NULL;
-	if (!(add = ft_stocklongitoa(e->nbrs)))
+	if (!(add = ft_stockssitoa(e->nbrs)))
 		return (-1);
 	add = ft_apply_options(add, e);
 	if (!(e->stock = ft_strjoinfree(e->stock, add)))
