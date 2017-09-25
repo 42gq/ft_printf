@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 02:45:44 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/20 02:46:16 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/25 03:24:54 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char	*ft_stockssitoa(char a)
 {
 	char	*str;
 
+	str = NULL;
 	str = ft_ssitoa(a);
 	return (str);
 }

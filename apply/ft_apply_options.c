@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/15 04:55:48 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/22 03:50:22 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/22 05:42:17 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 char	*ft_apply_options(char *str, t_env *e)
 {
+	if (((str[0] == '0' && str[1] == '\0') || (str[0] == '\0')) && e->preci_size && e->preci == 0)
+		str[0] = '\0';
 	str = ft_apply_preci(str, e);
 	if (e->condi != 's' && e->condi != 'o' && e->condi != 'x' && e->condi != 'X' && e->condi != 'u' && e->condi != 'U')
 	{

@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:18:37 by abassibe          #+#    #+#             */
-/*   Updated: 2017/09/20 03:28:41 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/25 04:41:54 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 int		main(void)
 {
 	int		page = 1;
-	int				i = -500000;
+	int		i = 32769;
 	float		f =10.641;
-	char	c = 'A';
-	char	*str = "bla";
+	char	c = '1';
+	char	*str = "Yolo";
 	char	*str2 = "troisieme";
 	wchar_t	*uni = L"䯂 䯂 䯂 䯂 䯂 䯂";
 
@@ -85,7 +85,7 @@ int		main(void)
 	ft_printf("% 2.1d| 2.1\n", i);
 	printf("% 2.1d| 2.1 printf\n", i);
 	ft_printf("%-10.2d|-10.2\n", i);
-	printf("%-10.d|-10.2 printf\n", i);
+	printf("%-10.2d|-10.2 printf\n", i);
 	ft_printf("%-2.2d|-2.2\n", i);
 	printf("%-2.2d|-2.2 printf\n", i);
 	ft_printf("%+10.2d|+10.2\n", i);
@@ -960,8 +960,8 @@ int		main(void)
 	getchar();
 
 	printf("------------- String sans unicode ---------------\n");
-	printf("%10s is a string et %10d|printf\n", str, c);
-	ft_printf("%10s is a string et %10d|\n", str, c);
+	printf("%12s is a string et %10d|printf\n", str, c);
+	ft_printf("%12s is a string et %10d|\n", str, c);
 	printf("%.4s|.4 printf\n", str);
 	ft_printf("%.4s|.4\n", str);
 	printf("%.0s|.0 printf\n", str);
@@ -1887,7 +1887,7 @@ int		main(void)
 	ft_printf("% 2.1u| 2.1\n", i);
 	printf("% 2.1u| 2.1 printf\n", i);
 	ft_printf("%-10.2u|-10.2\n", i);
-	printf("%-10.u|-10.2 printf\n", i);
+	printf("%-10.2u|-10.2 printf\n", i);
 	ft_printf("%-2.2u|-2.2\n", i);
 	printf("%-2.2u|-2.2 printf\n", i);
 	ft_printf("%+10.2u|+10.2\n", i);

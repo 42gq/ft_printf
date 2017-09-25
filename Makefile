@@ -6,7 +6,7 @@
 #    By: gquerre <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 05:42:43 by gquerre           #+#    #+#              #
-#    Updated: 2017/09/15 03:36:52 by gquerre          ###   ########.fr        #
+#    Updated: 2017/09/25 03:49:38 by gquerre          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJ = ./*.o
 all: $(NAME)
 
 $(NAME): SRC/libft/libft.a $(SRC)
-	gcc -I $(SUPP) $(SRC) -o $(NAME)
+	gcc -I $(SUPP) -g -fsanitize=address $(SRC) -o $(NAME)
 
 SRC/libft/libft.a:
 	make fclean -C SRC/libft/

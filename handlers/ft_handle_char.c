@@ -8,8 +8,6 @@ char	*ft_strchar(char *s1, char c)
 	i = 0;
 	if (!(s1))
 	{
-		if (!(c))
-			return (NULL);
 		if (!(res = ft_memalloc(sizeof(char) * 2)))
 			return (NULL);
 		res[i] = c;

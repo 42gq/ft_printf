@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 08:05:15 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/20 03:05:32 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/25 02:59:27 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_save_arg2(t_env *e, va_list arg)
 {
 	if (e->condi == 'c')
-		ft_handle_char(va_arg(arg, int), e);
+		ft_handle_char(va_arg(arg, char), e);
 	else if (e->condi == 'C')
 		ft_handle_wchar(va_arg(arg, wint_t), e);
 /*	if (e->condi == 'x')

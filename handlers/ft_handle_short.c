@@ -6,16 +6,17 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 02:44:20 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/20 02:45:03 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/25 03:30:25 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	*ft_stockshortitoa(short a)
+char	*ft_stockshortitoa(signed short int a)
 {
 	char	*str;
 
+	str = NULL;
 	str = ft_sitoa(a);
 	return (str);
 }

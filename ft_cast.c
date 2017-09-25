@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 00:47:34 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/22 03:41:13 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/25 04:38:55 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_cast(t_env *e, va_list arg, int uns)
 		e->nbrs = va_arg(arg, long long int);
 		if (e->h == 1)
 		{
-			e->nbrs = (short int)e->nbrs;
+			e->nbrs = (signed short int)e->nbrs;
 			ft_handle_shortint(e);
 		}
 		else if (e->h == 2)

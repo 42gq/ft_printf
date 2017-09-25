@@ -6,11 +6,12 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 05:00:09 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/22 01:15:25 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/25 03:53:23 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+
 char	*ft_apply_preci(char *str, t_env *e)
 {
 	char	*add;
@@ -32,7 +33,7 @@ char	*ft_apply_preci(char *str, t_env *e)
 				add[j++] = ' ';
 		}
 		while ((u - j) > i)
-			add[j++] = '0';
+			add[j++] = (str[0] != '\0' && e->preci != 1) ? '0' : ' ';
 		add[j] = '\0';
 		add = ft_strjoinfree(add, str);
 		return (add);

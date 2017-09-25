@@ -6,13 +6,13 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 01:38:53 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/20 02:59:33 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/25 04:41:00 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_sign(short int n)
+static int	ft_sign(signed short int n)
 {
 	int		negative;
 
@@ -23,15 +23,15 @@ static int	ft_sign(short int n)
 	return (negative);
 }
 
-char		*ft_sitoa(short int n)
+char		*ft_sitoa(signed short int n)
 {
-	short int		tmp;
+	signed short int	tmp;
 	int				len;
 	int				neg;
 	char			*str;
 
-	if (n == -32767)
-		return (ft_strdup("-32767"));
+	if (n == -32768)
+		return (ft_strdup("-32768"));
 	tmp = n;
 	neg = ft_sign(n);
 	len = (neg) ? 3 : 2;

@@ -4,6 +4,7 @@ char	*ft_keep_size(char *str, int i)
 {
 	char	*res;
 
+	res = NULL;
 	res = ft_memalloc(sizeof(char) * i + 1);
 	res = ft_strncpy(res, str, i);
 	free(str);
@@ -17,6 +18,7 @@ char	*ft_preci_str(char *str, t_env *e)
 	int		k;
 	int		j;
 
+	add = NULL;
 	j = 0;
 	k = 0;
 	i = ft_strlen(str);
@@ -27,12 +29,14 @@ char	*ft_preci_str(char *str, t_env *e)
 	}
 	if (i < e->field)
 	{
-		add = ft_memalloc(e->field + 1);
+		add = ft_memalloc(sizeof(char) * (e->field + 1));
 		while ((e->field - (i + k)) > 0)
 			add[k++] = (e->null == 1 && e->minus == 0)? '0' : ' ';
-		while (k < e->field + 1)
+		while (j < i && k < e->field + 1)
 			add[k++] = str[j++];
-		free(str);
+		add[k] = '\0';
+	//	printf("add = %s\n", add);
+		ft_strdel(&str);
 		return (add);
 	}
 	return (str);
@@ -40,23 +44,32 @@ char	*ft_preci_str(char *str, t_env *e)
 
 char	*ft_apply_optionsstr(char *str, t_env *e)
 {
-	str = ft_preci_str(str, e);
+	char	*add;
+
+	add = NULL;
+	add = ft_preci_str(str, e);
 	if (e->minus)
-		str = ft_apply_minus(str);
-	return (str);
+		add = ft_apply_minus(add);
+	return (add);
 }
 
 int ft_handle_str(char *v_arg, t_env *e)
 {
 	char	*add;
+	char	*mem;
 	
+	mem = NULL;
 	e->size_str = ft_strlen(v_arg);
+//	printf("size = %i\n", e->size_str);
 	add = NULL;
 	if (!(add = ft_memalloc(sizeof(char) * (e->size_str + 1))))
 		return (-1);
+//	printf("add = %s, e->stock = %s size of add = %zi\n", add, e->stock , ft_strlen(add));
 	add = ft_strcpy(add, v_arg);
-	add = ft_apply_optionsstr(add, e);
-	if (!(e->stock = ft_strjoinfree(e->stock, add)))
+	mem = ft_apply_optionsstr(add, e);
+//	printf("mem = %s, e->stock = %s size of add = %zi\n", mem, e->stock , ft_strlen(mem));
+	if (!(e->stock = ft_strjoinfree(e->stock, mem)))
 		return (-1);
+//	printf("e->stock = %s\n", e->stock);
 	return (1);
 }
