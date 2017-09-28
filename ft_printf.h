@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 00:44:17 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/25 03:15:59 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/28 05:50:21 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdlib.h>
 # include "./SRC/libft/SRC/libft.h"
 #include <stddef.h>
+#include <locale.h>
 
 int					main();
 
@@ -48,8 +49,12 @@ typedef struct		s_env
 	int				size_num;
 	int				signs;
 	char			*tmp;
+	int				size;
+	int				size_w;
 }					t_env;
 
+char				*ft_strchar(char *s1, char c);
+char				*ft_apply_optionschar(char *str, t_env *e);
 int					ft_printf(const char *format, ...);
 void				ft_init_arg(t_env *e);
 int					ft_read(const char *format, va_list arg, t_env *e);
@@ -71,7 +76,7 @@ int					ft_handle_ssint(t_env *e);
 int					ft_handle_shortint(t_env *e);
 int					ft_handle_str(char *v_arg, t_env *e);
 int					ft_handle_wchar(wint_t v_arg, t_env *e);
-int					ft_handle_wstring(wchar_t *v_arg, t_env *e);
+int					ft_handle_wstring(wchar_t *arg, t_env *e);
 int					ft_handle_longint(t_env *e);
 int					ft_handle_longlongint(t_env *e);
 int					ft_handle_ssunt(t_env *e);
@@ -90,7 +95,8 @@ char				*ft_signs_pass(char *str, t_env *e);
 char				*ft_apply_preci(char *str, t_env *e);
 char				*ft_minus(char *str, t_env *e);
 char				*ft_conv_wint_to_str(wint_t c, t_env *e);
-char				*ft_apply_minus(char *str);
+char				*ft_apply_minus(char *str, int j);
 char				*ft_convert_binchar_to_mbytes(char *str);
 void				ft_cast(t_env *e, va_list arg, int uns);
+char				*ft_apply_optionsstr(char *str, t_env *e);
 #endif

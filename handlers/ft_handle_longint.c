@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/31 07:02:26 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/20 03:22:08 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/28 01:16:07 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,12 @@ int		ft_handle_longint(t_env *e)
 	char	*add;
 
 	add = NULL;
+	if (!e->z)
+		e->nbrs = (long int)e->nbrs;
 	if (!(add = ft_stocklongitoa(e->nbrs)))
 		return (-1);
 	add = ft_apply_options(add, e);
+	e->size += ft_strlen(add);
 	if (!(e->stock = ft_strjoinfree(e->stock, add)))
 		return (-1);
 	return (1);

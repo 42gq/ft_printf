@@ -6,11 +6,20 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 01:38:23 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/20 03:00:19 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/28 06:47:53 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int			ft_verif(long long int n)
+{
+	n += 1;
+	if (n == -9223372036854775807)
+		return (1);
+	n -= 1;
+	return (0);
+}
 
 static int	ft_sign(long long int n)
 {
@@ -30,8 +39,8 @@ char		*ft_llitoa(long long int n)
 	int				neg;
 	char			*str;
 
-	if (n == -9223372036854775807)
-		return (ft_strdup("-9223372036854775807"));
+	if (ft_verif(n))
+		return (ft_strdup("-9223372036854775808"));
 	tmp = n;
 	neg = ft_sign(n);
 	len = (neg) ? 3 : 2;

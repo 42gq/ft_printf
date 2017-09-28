@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/22 03:29:47 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/22 03:43:58 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/28 06:51:07 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,21 @@ int		ft_sizecharss(unsigned char i, int base)
 			i = i / base;
 			size++;
 		}
-		return (size);
+	return (size);
 }
 
 char	*ft_ssutoa(unsigned char value, int base)
 {
-
 	int		i;
 	char	*nbr;
 
 	i = ft_sizecharss(value, base);
-	
 	if (!(nbr = ft_memalloc(sizeof(char) * (i + 1))))
 		return (NULL);
 	nbr[i + 1] = '\0';
 	while (i-- > 0)
 	{
-		nbr[i] = (value % base) + ((value % base > 9)? 'a' - 10 : '0');
+		nbr[i] = (value % base) + ((value % base > 9) ? 'a' - 10 : '0');
 		value = value / base;
 	}
 	return (nbr);

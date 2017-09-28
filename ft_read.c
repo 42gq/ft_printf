@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 02:44:18 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/20 03:04:59 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/28 06:58:21 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,15 @@ int		ft_read(const char *format, va_list arg, t_env *e)
 	{
 		if (tmp[i] != '\0' && tmp[i] != '%' && ft_stock(&tmp[i], e) < 0)
 			return (ft_error_printf(2));
+		e->size += ft_strchr_count(&tmp[i], '%');
 		i += ft_strchr_count(&tmp[i], '%');
 		if (tmp[i] == '\0')
 			break ;
 		i = addon_read(e, tmp, i, arg);
-		/*if (tmp[i] == '%')
-		{
-			ft_init_arg(e);
-			if (ft_checkway(&tmp[i], e) < 0)
-				return (ft_error_printf(-(ft_checkway(&tmp[i], e))));
-			i += ft_save_arg(e, arg);
-		}*/
 		if (i < 0 || e->error != 0)
 			return (ft_error_printf(e->error));
 	}
 	ft_putstr(e->stock);
 	free(tmp);
-	return (1);
+	return (e->size);
 }

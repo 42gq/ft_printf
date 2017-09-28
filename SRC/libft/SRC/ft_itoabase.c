@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/12 03:07:14 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/15 05:53:44 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/28 06:10:13 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int		ft_sizechar(int i, int base)
 char	*ft_itoa_base(int value, int base)
 {
 	int		i;
-	int 	neg;
+	int		neg;
 	char	*nbr;
-	
+
 	neg = 0;
 	if (value < 0)
 	{
@@ -47,7 +47,7 @@ char	*ft_itoa_base(int value, int base)
 	nbr[i + neg + 1] = '\0';
 	while (i-- > 0)
 	{
-		nbr[i + neg] = (value % base) + ((value % base > 9)? 'A' - 10 : '0');
+		nbr[i + neg] = (value % base) + ((value % base > 9) ? 'A' - 10 : '0');
 		value = value / base;
 	}
 	if (neg)

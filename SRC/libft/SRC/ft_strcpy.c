@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 07:14:30 by gquerre           #+#    #+#             */
-/*   Updated: 2017/05/16 03:11:06 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/26 05:23:00 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strcpy(char *dst, char *src)
 	int i;
 
 	i = 0;
+	if (!dst || !src)
+		return (NULL);
 	while (src[i] != '\0')
 	{
 		dst[i] = src[i];

@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/15 07:23:59 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/22 01:31:57 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/28 06:59:02 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int		ft_options_field(char *str, int i, t_env *e)
 		}
 		k += e->field_size;
 	}
-//	printf("k = %i, e->field_size = %i, e->field = %i\n", k, e->field_size, e->field);
 	return (k);
 }
 
@@ -42,7 +41,6 @@ int		ft_check_preci(char *str, t_env *e)
 	i = 0;
 	while (ft_isdigit(str[i]))
 		i--;
-//	printf("str[i] = %c, preci_size = %i, e->preci = %i, k = %i\n", str[i], e->preci_size, e->preci, k);
 	if (!(k = ft_options_field(str, i, e)))
 	{
 		if ((str[i] == '.') && e->preci == 0)
@@ -50,7 +48,6 @@ int		ft_check_preci(char *str, t_env *e)
 			e->preci_size = -(i - 1);
 			e->preci = ft_atoi(&str[i + 1]);
 			k = e->preci_size;
-	//		printf("YOOOOLLLLOOOstr[i] = %c, preci_size = %i, e->preci = %i, k = %i\n", str[i], e->preci_size, e->preci, k);
 		}
 		else if (str[i + 1] == '0')
 		{
@@ -58,12 +55,8 @@ int		ft_check_preci(char *str, t_env *e)
 			e->null = 1;
 		}
 		else
-		{
-			printf("KDO\n");
 			return (-1);
-		}
 	}
-//	printf("BITEstr[i] = %c, preci_size = %i, e->preci = %i, k = %i\n", str[i], e->preci_size, e->preci, k);
 	return (k);
 }
 

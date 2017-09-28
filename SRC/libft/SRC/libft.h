@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/09 19:35:19 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/22 03:45:05 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/25 05:13:43 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
-char				*ft_litoa(long int n);
+char				*ft_litoa(long long int n);
 char				*ft_llitoa(long long int n);
 char				*ft_sitoa(short int n);
 char				*ft_ssitoa(char n);

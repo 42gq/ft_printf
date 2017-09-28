@@ -6,13 +6,22 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 01:28:46 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/20 01:54:22 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/28 06:47:33 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_sign(long int n)
+int			ft_verif_lim(long long int n)
+{
+	n += 1;
+	if (n == -9223372036854775807)
+		return (1);
+	n -= 1;
+	return (0);
+}
+
+static int	ft_sign(long long int n)
 {
 	int	neg;
 
@@ -23,16 +32,16 @@ static int	ft_sign(long int n)
 	return (neg);
 }
 
-char		*ft_litoa(long int n)
+char		*ft_litoa(long long int n)
 {
-	long int	tmp;
-	int			len;
-	int			neg;
-	char		*str;
+	long long int	tmp;
+	int				len;
+	int				neg;
+	char			*str;
 
-	if (n == -4294967296)
-		return (ft_strdup("-4294967296"));
-	tmp = n;
+	if (ft_verif_lim(n))
+		return (ft_strdup("-9223372036854775808"));
+	tmp = (long long int)n;
 	neg = ft_sign(n);
 	len = (neg) ? 3 : 2;
 	while (tmp /= 10)

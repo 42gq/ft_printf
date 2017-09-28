@@ -6,17 +6,18 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/29 05:00:18 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/16 05:22:35 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/28 06:56:52 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_mask(int i)
+char	*ft_mask(int i, t_env *e)
 {
 	int		k;
 	char	*str;
 
+	e->size_w += i;
 	k = 0;
 	str = NULL;
 	if (!(str = ft_memalloc(sizeof(char) * (i * 8) + 1)))
@@ -66,13 +67,13 @@ char	*ft_split_mbytes(t_env *e, int i)
 
 	str = NULL;
 	if (i < 7)
-		str = ft_mask(1);
+		str = ft_mask(1, e);
 	else if (i < 12)
-		str = ft_mask(2);
+		str = ft_mask(2, e);
 	else if (i < 18)
-		str = ft_mask(3);
+		str = ft_mask(3, e);
 	else if (i < 22)
-		str = ft_mask(4);
+		str = ft_mask(4, e);
 	else
 		return (NULL);
 	str = put_bytes_into(e, str);
@@ -88,7 +89,7 @@ int		ft_convert_deci_to_binary(wint_t c, int n, t_env *e)
 	i = 1;
 	k = 0;
 	if (c == 0)
-		return (l);
+		return ((l) ? l : 0);
 	while (i <= c)
 	{
 		i *= 2;

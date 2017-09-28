@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 01:19:31 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/25 04:01:14 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/28 06:52:01 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 char		*ft_strjoinfree(char *s1, char *s2)
 {
 	char	*mem;
+
 	mem = NULL;
-/*	if (!(s1) && !(s2))
-		return (NULL);
-*/	
 	if (!(s2))
-		return(s1);
+		return (s1);
 	mem = ft_strjoin(s1, s2);
 	ft_strdel(&s1);
 	return (mem);

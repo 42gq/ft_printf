@@ -6,18 +6,17 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 05:00:09 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/25 03:57:50 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/28 05:48:45 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	*ft_apply_minus(char *str)
+char	*ft_apply_minus(char *str, int j)
 {
 	char	*add;
 	int		i;
 	int		k;
-	int		j;
 
 	add = NULL;
 	i = 0;
