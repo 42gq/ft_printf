@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 00:44:17 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/29 04:49:09 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/29 04:56:26 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #include <stddef.h>
 #include <locale.h>
 #include <stdarg.h>
+#include "ft_printf.h"
 
 int					main();
 

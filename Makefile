@@ -6,7 +6,7 @@
 #    By: gquerre <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 05:42:43 by gquerre           #+#    #+#              #
-#    Updated: 2017/09/29 04:45:27 by gquerre          ###   ########.fr        #
+#    Updated: 2017/09/29 05:38:31 by gquerre          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,23 +19,25 @@ FLAG = -Wextra -Wall -Werror
 SUPP = ./ft_printf.h ./SRC/libft/libft.a
 
 OBJ = ./*.o
+
 # -fsanitize=address after -c #
-$(NAME): SRC/libft/libft.a $(SRC)
-	gcc -I $(SUPP) -c $(SRC)
+
+all: $(NAME)
+
+$(NAME):
+	make -C SRC/libft/
+	gcc -I SRC/libft/libft.a -c $(SRC)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
-SRC/libft/libft.a:
-	make fclean -C SRC/libft/
-	make -C SRC/libft/
+.Phony: clean all fclean re
 
 clean:
 	rm -f $(OBJ)
-	rm -f SRC/libft/libft.a
+	make clean -C SRC/libft/
 
 fclean: clean
 	rm -f $(NAME)
-
-all: $(NAME)
+	make fclean -C SRC/libft/
 
 re: fclean all
