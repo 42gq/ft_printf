@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 00:44:17 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/28 05:50:21 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/29 01:23:18 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,5 @@ char				*ft_apply_minus(char *str, int j);
 char				*ft_convert_binchar_to_mbytes(char *str);
 void				ft_cast(t_env *e, va_list arg, int uns);
 char				*ft_apply_optionsstr(char *str, t_env *e);
+char				*ft_diese(char *str, t_env *e);
 #endif

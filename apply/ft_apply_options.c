@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/15 04:55:48 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/28 05:51:42 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/29 02:39:20 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ char	*ft_apply_options(char *str, t_env *e)
 		str = ft_minus(str, e);
 		str = ft_signs_pass(str, e);
 	}
+	if (e->condi == 'p' || (e->diese == 1 && (e->condi == 'x' || e->condi == 'X'
+					|| e->condi == 'o' || e->condi == 'O')))
+		str = ft_diese(str, e);
 	if (e->minus == 1)
 		str = ft_apply_minus(str, 0);
 	return (str);

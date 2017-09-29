@@ -6,11 +6,11 @@
 #    By: gquerre <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 05:42:43 by gquerre           #+#    #+#              #
-#    Updated: 2017/09/25 03:49:38 by gquerre          ###   ########.fr        #
+#    Updated: 2017/09/29 04:14:07 by gquerre          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_printf
+NAME = ft_printf.a
 
 SRC  = ./*.c ./handlers/*.c ./apply/*.c
 
@@ -20,10 +20,10 @@ SUPP = ./ft_printf.h ./SRC/libft/libft.a
 
 OBJ = ./*.o
 
-all: $(NAME)
-
 $(NAME): SRC/libft/libft.a $(SRC)
-	gcc -I $(SUPP) -g -fsanitize=address $(SRC) -o $(NAME)
+	gcc -I $(SUPP) -c -fsanitize=address $(SRC)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 
 SRC/libft/libft.a:
 	make fclean -C SRC/libft/
@@ -35,5 +35,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+
+all: $(NAME)
 
 re: fclean all

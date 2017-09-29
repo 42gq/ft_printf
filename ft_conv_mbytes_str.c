@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/29 05:00:18 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/28 06:56:52 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/09/29 03:41:46 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,7 @@ char	*ft_split_mbytes(t_env *e, int i)
 	char	*str;
 
 	str = NULL;
-	if (i < 7)
-		str = ft_mask(1, e);
-	else if (i < 12)
+	if (i < 12)
 		str = ft_mask(2, e);
 	else if (i < 18)
 		str = ft_mask(3, e);
@@ -116,10 +114,12 @@ char	*ft_conv_wint_to_str(wint_t c, t_env *e)
 
 	str = NULL;
 	res = NULL;
-	if ((i = ft_convert_deci_to_binary(c, 1, e)) > 0)
+	if ((i = ft_convert_deci_to_binary(c, 1, e)) > 1)
 	{
 		str = ft_split_mbytes(e, i);
 		res = ft_convert_binchar_to_mbytes(str);
 	}
+	else if (i == 1)
+		ft_strchar(res, c);
 	return (res);
 }
