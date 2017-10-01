@@ -6,17 +6,17 @@
 #    By: gquerre <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 05:42:43 by gquerre           #+#    #+#              #
-#    Updated: 2017/09/29 05:38:31 by gquerre          ###   ########.fr        #
+#    Updated: 2017/10/02 00:49:06 by gquerre          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRC  = ./*.c ./handlers/*.c ./apply/*.c
+SRC  = ./*.c ./handlers/*.c ./apply/*.c ./SRC/libft/SRC/*.c
 
 FLAG = -Wextra -Wall -Werror
 
-SUPP = ./ft_printf.h ./SRC/libft/libft.a
+SUPP = ./ft_printf.h ./SRC/libft/SRC/libft.h
 
 OBJ = ./*.o
 
@@ -24,9 +24,8 @@ OBJ = ./*.o
 
 all: $(NAME)
 
-$(NAME):
-	make -C SRC/libft/
-	gcc -I SRC/libft/libft.a -c $(SRC)
+$(NAME): $(SRC)
+	gcc -I $(SUPP) -c $(SRC)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
@@ -34,10 +33,8 @@ $(NAME):
 
 clean:
 	rm -f $(OBJ)
-	make clean -C SRC/libft/
 
 fclean: clean
 	rm -f $(NAME)
-	make fclean -C SRC/libft/
 
 re: fclean all
