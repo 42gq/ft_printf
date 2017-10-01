@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 00:47:34 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/28 06:54:39 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/02 01:26:00 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_cast2(t_env *e, va_list arg, int uns)
 		e->nbrs = (size_t)e->nbrs;
 		ft_handle_longint(e);
 	}
-	else if (e->l == 1)
+	else if (e->l == 1 || e->condi == 'D')
 		ft_handle_longint(e);
 	else if (e->l == 2)
 		ft_handle_longlongint(e);

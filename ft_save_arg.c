@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 08:05:15 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/29 04:49:54 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/02 01:26:17 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	ft_save_arg2(t_env *e, va_list arg)
 int		ft_save_arg(t_env *e, va_list arg)
 {
 	if (e->condi == 'x' || e->condi == 'X' || e->condi == 'u'
-			|| e->condi == 'o' || e->condi == 'p')
+			|| e->condi == 'U' || e->condi == 'o' || e->condi == 'p')
 		ft_cast(e, arg, 1);
-	if (e->condi == 'i' || e->condi == 'd')
+	if (e->condi == 'i' || e->condi == 'd' || e->condi == 'D')
 		ft_cast(e, arg, 0);
 	if (e->condi == 's')
 		ft_handle_str(va_arg(arg, char*), e);
