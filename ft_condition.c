@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 07:44:08 by gquerre           #+#    #+#             */
-/*   Updated: 2017/10/02 07:15:20 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/02 08:22:09 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int		ft_condition(char *str, t_env *e, int check)
 	e->size_arg = 0;
 	if (str[i] == 's' || str[i] == 'S' || str[i] == 'd'
 			|| str[i] == 'p' || str[i] == 'O' || str[i] == 'o'
-			|| str[i] == 'i' || str[i] == 'D' || str[i] == '%'
+			|| str[i] == 'i' || str[i] == 'D' /*|| str[i] == '%'*/
 			|| str[i] == 'x' || str[i] == 'X' || str[i] == 'u'
 			|| str[i] == 'U' || str[i] == 'c' || str[i] == 'C')
 	{
