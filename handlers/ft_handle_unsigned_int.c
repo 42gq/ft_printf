@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/12 02:53:42 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/28 05:55:25 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/02 08:00:50 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ int		ft_handle_unt(t_env *e)
 	e->nbr = (unsigned int)e->nbr;
 	if (!(add = ft_stockutoa(e->nbr, e)))
 		return (-1);
-	if (e->condi > 64 && e->condi < 91)
-		ft_capitalize(add);
 	add = ft_apply_options(add, e);
 	e->size += ft_strlen(add);
+	if (e->condi > 64 && e->condi < 91)
+		ft_capitalize(add);
 	if (!(e->stock = ft_strjoinfree(e->stock, add)))
 		return (-1);
 	return (1);

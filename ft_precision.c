@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/15 07:23:59 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/28 06:59:02 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/02 06:34:01 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		ft_check_preci(char *str, t_env *e)
 			e->null = 1;
 		}
 		else
-			return (-1);
+			return (0);
 	}
 	return (k);
 }
@@ -68,7 +68,7 @@ int		ft_precision(char *str, t_env *e)
 	i = 0;
 	while (str[i] != '%')
 	{
-		if (str[i] >= '0' && str[i] <= '9')
+		if ((str[i] >= '0' && str[i] <= '9') || (str[i] == '.' && !ft_isdigit(str[i + 1])))
 		{
 			k = 0;
 			if ((k = ft_check_preci(&str[i], e)) < 0)

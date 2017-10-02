@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 07:44:08 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/28 06:55:34 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/02 07:15:20 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	ft_condition2(char *str, t_env *e)
 	k = ft_signs(&str[i + k + 1], e);
 	if (e->null == 0 && e->size_num == 0)
 		k = 0;
+	i += (e->preci_size == 1) ? 1 : 0;
 	e->size_arg += (-i) + e->size_num + 1 + k;
 }
 
@@ -77,7 +78,7 @@ int		ft_condition(char *str, t_env *e, int check)
 	e->size_arg = 0;
 	if (str[i] == 's' || str[i] == 'S' || str[i] == 'd'
 			|| str[i] == 'p' || str[i] == 'O' || str[i] == 'o'
-			|| str[i] == 'i' || str[i] == 'D'
+			|| str[i] == 'i' || str[i] == 'D' || str[i] == '%'
 			|| str[i] == 'x' || str[i] == 'X' || str[i] == 'u'
 			|| str[i] == 'U' || str[i] == 'c' || str[i] == 'C')
 	{
@@ -87,9 +88,7 @@ int		ft_condition(char *str, t_env *e, int check)
 			if (e->h < 0 || e->l < 0)
 				return (-4);
 			if (e->size_arg - ft_somme_option(e) != 0)
-			{
-				return (-5);
-			}
+				return (-6);
 		}
 		return (1);
 	}

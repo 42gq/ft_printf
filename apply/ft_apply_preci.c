@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 05:00:09 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/25 03:53:23 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/02 07:40:56 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_apply_preci(char *str, t_env *e)
 		while (e->preci + j < e->field && j < e->field - i)
 		{
 			if (e->preci_size == 0)
-				add[j++] = (e->null == 1) ? '0' : ' ';
+				add[j++] = (e->null == 1 && !e->minus) ? '0' : ' ';
 			else
 				add[j++] = ' ';
 		}

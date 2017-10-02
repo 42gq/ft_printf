@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/03 05:21:12 by gquerre           #+#    #+#             */
-/*   Updated: 2017/07/21 02:35:24 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/02 05:30:04 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,10 @@ void	ft_write_error(int i)
 		ft_putstr("- Bad options choice -\nPLease check your arguments");
 	if (i == 5)
 		ft_putstr("- Wrong options -\nPlease check your arguments5555");
-	if (i == 1)
-		ft_putstr("");
-	if (i == 1)
-		ft_putstr("");
-	if (i == 1)
-		ft_putstr("");
-	if (i == 1)
-		ft_putstr("");
+	if (i == 6)
+		ft_putstr("- Options != somme_options, check ft_condition\n");
+	if (i == 7)
+		ft_putstr("- BITE\n");
 }
 
 int		ft_error_printf(int i)

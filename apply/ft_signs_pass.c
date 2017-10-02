@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/15 03:45:11 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/28 05:43:26 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/02 07:33:20 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_signs_pass(char *str, t_env *e)
 		while (j <= i && str[j] == ' ')
 			j++;
 		if (j == 0 && (e->preci == i ||
-					(e->field <= i && str[j] != '0')))
+					(e->field <= i)))
 			add = ft_add_1stcharbool(str, e->plus, '+', ' ');
 		else if (j == 0 && e->field == i &&
 				(str[j] == ' ' || str[j] == '0'))
