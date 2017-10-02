@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 07:44:08 by gquerre           #+#    #+#             */
-/*   Updated: 2017/10/02 08:24:37 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/02 08:32:46 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	ft_condition2(char *str, t_env *e)
 	k = ft_signs(&str[i + k + 1], e);
 	if (e->null == 0 && e->size_num == 0)
 		k = 0;
-	i += (e->preci_size == 1) ? 1 : 0;
+//	i += (e->preci_size == 1) ? 1 : 0;
 	e->size_arg += (-i) + e->size_num + 1 + k;
 }
 
