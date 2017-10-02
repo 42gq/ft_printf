@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/15 07:23:59 by gquerre           #+#    #+#             */
-/*   Updated: 2017/10/02 08:16:41 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/02 08:25:45 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		ft_check_preci(char *str, t_env *e)
 		if ((str[i] == '.') && e->preci == 0)
 		{
 			e->preci_size = -(i - 1);
-			e->preci = ft_atoi(&str[i + 1]);
+			e->preci = (e->preci_size > 1) ? ft_atoi(&str[i + 1]) : 0;
 			k = e->preci_size;
 		}
 		else if (str[i + 1] == '0')
