@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 04:04:49 by gquerre           #+#    #+#             */
-/*   Updated: 2017/10/02 03:02:47 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/02 03:10:16 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_diese(char *str, t_env *e)
 
 	i = 0;
 	add = NULL;
-	if (str[0] == '0')
+	if (e->condi != 'p' && str[0] == '0')
 		return (str);
 	while (str[i] == ' ')
 		i++;
