@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 02:44:18 by gquerre           #+#    #+#             */
-/*   Updated: 2017/10/02 03:45:07 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/03 10:36:57 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		ft_read(const char *format, va_list arg, t_env *e)
 		if (i < 0 || e->error != 0)
 			return (ft_error_printf(e->error));
 	}
-	write(1, e->stock, e->size);
+	write(1, &e->stock, e->size);
 	free(tmp);
 	return (e->size);
 }
