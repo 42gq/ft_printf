@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 05:53:33 by gquerre           #+#    #+#             */
-/*   Updated: 2017/10/02 08:46:17 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/03 10:56:21 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ int		ft_checkway(char *str, t_env *e)
 	int i;
 
 	i = 1;
+	if (str[i] != '\0' && str[i] == '%')
+	{
+		e->condi = '%';
+		return (1);
+	}
 	while (str[i] != '\0' && !(ft_condition(&str[i], e, 0)))
 		i++;
 	if (str[i] == '\0')
