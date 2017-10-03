@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 02:44:18 by gquerre           #+#    #+#             */
-/*   Updated: 2017/10/03 10:36:57 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/03 10:39:38 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,14 @@ int		ft_read(const char *format, va_list arg, t_env *e)
 	i = 0;
 	l = ft_strlen(format);
 	if (!(tmp = ft_strdup_until(format, l)))
-		return (ft_error_printf(1));
-	while (tmp[i] != '\0')
+		return (ft_= '\0')
+	{
+		if (tmp[i] != '\0' && tmp[i] != '%' && ft_stock(&tmp[i], e) < 0)
+			return (ft_error_printf(2));
+		e->size += ft_strchr_count(&tmp[i], '%');
+		i += ft_strchr_count(&tmp[i], '%');
+		if (tmp[i] == '\0')
+			break ;= '\0')
 	{
 		if (tmp[i] != '\0' && tmp[i] != '%' && ft_stock(&tmp[i], e) < 0)
 			return (ft_error_printf(2));
@@ -48,6 +54,28 @@ int		ft_read(const char *format, va_list arg, t_env *e)
 			return (ft_error_printf(e->error));
 	}
 	write(1, &e->stock, e->size);
+	free(tmp);
+	return (e->size);
+		i = addon_read(e, tmp, i, arg);
+		if (i < 0 || e->error != 0)
+			return (ft_error_printf(e->error));
+	}
+	write(1, &e->stock, e->size);
+	free(tmp);
+	return (e->size);error_printf(1));
+	while (tmp[i] != '\0')
+	{
+		if (tmp[i] != '\0' && tmp[i] != '%' && ft_stock(&tmp[i], e) < 0)
+			return (ft_error_printf(2));
+		e->size += ft_strchr_count(&tmp[i], '%');
+		i += ft_strchr_count(&tmp[i], '%');
+		if (tmp[i] == '\0')
+			break ;
+		i = addon_read(e, tmp, i, arg);
+		if (i < 0 || e->error != 0)
+			return (ft_error_printf(e->error));
+	}
+	write(1, e->stock, e->size);
 	free(tmp);
 	return (e->size);
 }
