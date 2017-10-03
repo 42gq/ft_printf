@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 04:10:45 by gquerre           #+#    #+#             */
-/*   Updated: 2017/10/04 00:26:26 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/04 00:28:26 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_handle_char(char v_arg, t_env *e)
 	c = v_arg;
 	add = NULL;
 	if (!(add = ft_strchar(add, v_arg)))
-		add = ft_strdup(add, "\0");
+		add = ft_strdup("\0");
 	add = ft_apply_optionschar(add, e);
 	if (e->condi != 'C')
 		e->size += (c) ? ft_strlen(add) : ft_strlen(add) + 1;
