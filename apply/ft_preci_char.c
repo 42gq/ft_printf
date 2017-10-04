@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 04:07:22 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/28 05:48:32 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/04 03:45:22 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_apply_optionschar(char *str, t_env *e)
 	char	*add;
 
 	add = NULL;
-	add = ft_precichar(str, e);
+	add = ft_strdup(ft_precichar(str, e));
 	if (e->minus)
 		add = ft_apply_minus(add, 0);
 	return (add);
