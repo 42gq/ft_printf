@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/29 05:00:18 by gquerre           #+#    #+#             */
-/*   Updated: 2017/10/04 03:02:03 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/04 03:04:15 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int		ft_convert_deci_to_binary(wint_t c, int n, t_env *e)
 	k = 0;
 	if (c == 0)
 		return ((l) ? l : 0);
-	while (i < c)
+	while (i <= c)
 	{
 		i *= 2;
 		k++;
@@ -103,7 +103,7 @@ int		ft_convert_deci_to_binary(wint_t c, int n, t_env *e)
 			e->tmp[--k] = '0';
 		k = l;
 	}
-	e->tmp[l - k] = '1';
+	e->tmp[l - k + 1] = '1';
 	c = c - (i / 2);
 	return (ft_convert_deci_to_binary(c, 2, e));
 }
