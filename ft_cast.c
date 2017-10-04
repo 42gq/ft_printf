@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 00:47:34 by gquerre           #+#    #+#             */
-/*   Updated: 2017/10/03 11:04:52 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/04 04:08:00 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_cast(t_env *e, va_list arg, int uns)
 			ft_handle_llunt(e);
 		else if (e->j == 1)
 			ft_handle_llunt(e);
-		else if (e->l == 1 || e->condi == 'U')
+		else if (e->l == 1 || e->condi == 'U' || e->condi == 'O')
 			ft_handle_lunt(e);
 		else if (e->z == 1)
 		{
