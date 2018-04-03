@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/09 19:35:19 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/29 02:17:41 by gquerre          ###   ########.fr       */
+/*   Updated: 2018/04/03 02:40:10 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdlib.h>
 # include "./files.h/get_next_line.h"
 
+void				ft_clean(char *str);
 char				*ft_insert(char *str, int i, char *addon);
 char				*ft_capitalize(char *str);
 char				*ft_replace_char(char *str, int i, char c);
@@ -29,7 +30,7 @@ int					ft_pow(int value, int pow);
 char				*ft_utoa_base(unsigned int value, int base);
 char				*ft_itoa_base(int value, int base);
 char				*ft_strdup_until(const char *s1, int i);
-char				*ft_strcpy_until(char *str, size_t i);
+char				*ft_strcpy_until(char *dst, char *str, size_t i);
 size_t				ft_strchr_count(char *str, char c);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);

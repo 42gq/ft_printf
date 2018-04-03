@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 05:53:58 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/28 05:54:33 by gquerre          ###   ########.fr       */
+/*   Updated: 2018/04/03 03:29:14 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ int	ft_handle_str(char *v_arg, t_env *e)
 	e->size += ft_strlen(mem);
 	if (!(e->stock = ft_strjoinfree(e->stock, mem)))
 		return (-1);
+	ft_strdel(&mem);
 	return (1);
 }

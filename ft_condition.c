@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 07:44:08 by gquerre           #+#    #+#             */
-/*   Updated: 2017/10/04 00:56:51 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/10 05:27:11 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,8 @@ void	ft_condition2(char *str, t_env *e)
 	int i;
 	int	k;
 
-	i = (e->condi == '%') ? 1 : 0;
-	k = 0;
-	if ((e->size_num = ft_precision(str, e)) < 0)
+	i = 0;
+	if (ft_precision(&str[i], e) < 0)
 		e->error = 1;
 	while (str[i] != '%' && !(ft_isdigit(str[i])))
 	{
@@ -61,13 +60,10 @@ void	ft_condition2(char *str, t_env *e)
 			e->l = ft_doub(&str[i], str[i], e);
 		i--;
 	}
+	k = (e->condi == '%' && str[i] == '%') ? -1 : 0;
 	while (str[i + k] != '%')
 		k--;
-	k = ft_signs(&str[i + k + 1], e);
-	if (e->null == 0 && e->size_num == 0)
-		k = 0;
-	i += (e->preci_size == 1) ? 1 : 0;
-	e->size_arg += (-i) + e->size_num + 1 + k;
+	ft_signs(&str[i + k + 1], e);
 }
 
 int		ft_condition(char *str, t_env *e, int check)
@@ -76,21 +72,22 @@ int		ft_condition(char *str, t_env *e, int check)
 
 	i = 0;
 	e->size_arg = 0;
-	if (str[i] == 's' || str[i] == 'S' || str[i] == 'd'
+	if (str[i] == 's' || str[i] == 'S' || str[i] == 'd' || str[i] == 'b'
 			|| str[i] == 'p' || str[i] == 'O' || str[i] == 'o'
 			|| str[i] == 'i' || str[i] == 'D' || str[i] == '%'
 			|| str[i] == 'x' || str[i] == 'X' || str[i] == 'u'
 			|| str[i] == 'U' || str[i] == 'c' || str[i] == 'C')
 	{
-		if (str[i] == '%')
-			e->condi = '%';
+		e->condi = str[i];
 		if (check == 1)
 		{
 			ft_condition2(str, e);
 			if (e->h < 0 || e->l < 0)
 				return (-4);
 			if (e->size_arg - ft_somme_option(e) != 0)
+			{
 				return (-6);
+			}
 		}
 		return (1);
 	}

@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/22 01:58:05 by gquerre           #+#    #+#             */
-/*   Updated: 2017/10/02 08:01:15 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/10 05:29:24 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ char	*ft_stockssutoa(unsigned char a, t_env *e)
 	char	*str;
 	int		base;
 
-	if (e->condi == 'o')
+	if (e->condi == 'o' || e->condi == 'O')
 		base = 8;
 	else if (e->condi == 'x' || e->condi == 'X' || e->condi == 'p')
 		base = 16;
+	else if (e->condi == 'b')
+		base = 2;
 	else
 		base = 10;
 	str = ft_ssutoa(a, base);

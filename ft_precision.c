@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/15 07:23:59 by gquerre           #+#    #+#             */
-/*   Updated: 2017/10/02 08:42:10 by gquerre          ###   ########.fr       */
+/*   Updated: 2017/10/06 09:30:47 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,21 @@ int		ft_options_field(char *str, int i, t_env *e)
 
 	k = 0;
 	if ((str[i] == '-' || str[i] == '+' || str[i] == ' ' || str[i] == '#'
-		|| str[i] == '%') && e->field == 0)
+		|| str[i] == '%') && e->field_size == 0)
 	{
-		e->field_size = -i;
-		e->field = ft_atoi(&str[i + 1]);
-		if (str[i + 1] == '0')
+		if (e->field == 0)
 		{
-			e->field_size -= 1;
-			k++;
+			e->field_size = -i;
+			e->field = ft_atoi(&str[i + 1]);
 		}
-		k += e->field_size;
+		if (e->field_size > 0 && e->field == 0)
+		{
+			e->field_size = 0;
+			return (0);
+		}
+		return (-i);
 	}
-	return (k);
+	return (0);
 }
 
 int		ft_check_preci(char *str, t_env *e)
@@ -49,13 +52,8 @@ int		ft_check_preci(char *str, t_env *e)
 			e->preci = ft_atoi(&str[i + 1]);
 			k = e->preci_size;
 		}
-			else if (str[i + 1] == '0')
-		{
-			k = 1;
-			e->null = 1;
-		}
 		else
-			return (-1);
+			return (0);
 	}
 	return (k);
 }
@@ -65,10 +63,11 @@ int		ft_precision(char *str, t_env *e)
 	int	i;
 	int	k;
 
-	i = 0;
+	i = (e->condi == '%') ? -1 : 0;
 	while (str[i] != '%')
 	{
-		if ((str[i] >= '0' && str[i] <= '9') || (e->preci == 0 && str[i] == '.' && !ft_isdigit(str[i + 1])))
+		if ((str[i] >= '0' && str[i] <= '9') || (e->condi == '%') ||
+				(e->preci == 0 && str[i] == '.' && !ft_isdigit(str[i + 1])))
 		{
 			k = 0;
 			if ((k = ft_check_preci(&str[i], e)) < 0)
@@ -78,5 +77,7 @@ int		ft_precision(char *str, t_env *e)
 		}
 		i--;
 	}
-	return (e->preci_size + e->field_size + e->null);
+	e->null = ft_zero(&str[i], e);
+	e->size_arg = -i + 1;
+	return (-i);
 }

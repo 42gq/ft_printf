@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 03:10:04 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/25 04:13:11 by gquerre          ###   ########.fr       */
+/*   Updated: 2018/04/03 02:42:55 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_stock(char *format, t_env *e)
 	{
 		if (!(add = ft_strnew(i + 1)))
 			return (-1);
-		add = ft_strcpy_until(format, i);
+		add = ft_strcpy_until(add, format, i);
 		if (!(e->stock = ft_strjoinfree(e->stock, add)))
 		{
 			ft_strdel(&add);

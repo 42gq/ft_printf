@@ -6,7 +6,7 @@
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/26 05:06:04 by gquerre           #+#    #+#             */
-/*   Updated: 2017/09/28 05:48:03 by gquerre          ###   ########.fr       */
+/*   Updated: 2018/04/03 03:23:52 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_keep_size(char *str, int i)
 	res = NULL;
 	res = ft_memalloc(sizeof(char) * i + 1);
 	res = ft_strncpy(res, str, i);
-	free(str);
+	ft_strdel(&str);
 	return (res);
 }
 
@@ -42,7 +42,7 @@ char	*ft_preci_str(char *str, t_env *e, int j)
 	{
 		add = ft_memalloc(sizeof(char) * (e->field + 1));
 		while ((e->field - (i + k)) > 0)
-			add[k++] = (e->null == 1 && e->minus == 0) ? '0' : ' ';
+			add[k++] = (e->null > 0 && e->minus == 0) ? '0' : ' ';
 		while (j < i && k < e->field + 1)
 			add[k++] = str[j++];
 		add[k] = '\0';

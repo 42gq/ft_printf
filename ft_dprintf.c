@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_somme_option.c                                  :+:      :+:    :+:   */
+/*   ft_dprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gquerre <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/09 06:32:46 by gquerre           #+#    #+#             */
-/*   Updated: 2017/10/06 09:30:23 by gquerre          ###   ########.fr       */
+/*   Created: 2017/10/10 04:45:31 by gquerre           #+#    #+#             */
+/*   Updated: 2017/10/10 04:51:06 by gquerre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_somme_option(t_env *e)
+int	ft_dprintf(int fd, const char *format, ...)
 {
-	int i;
+	va_list arg;
+	int		res;
+	t_env	*e;
 
-	i = e->space + e->h + e->diese + e->null + e->minus
-		+ e->preci_size + e->field_size + e->plus + e->l + e->j + e->z + 2;
-	return (i);
+	if (!(e = ft_memalloc(sizeof(t_env))))
+		return (-1);
+	e->size = 0;
+	e->cheat_size = 0;
+	e->cheat = NULL;
+	if (e->stock)
+		ft_strclr(e->stock);
+	e->stock = ft_strnew(1);
+	ft_init_arg(e);
+	va_start(arg, format);
+	res = ft_read(format, arg, e);
+	ft_putstr_fd(e->stock, fd);
+	ft_strdel(&e->stock);
+	free(e);
+	va_end(arg);
+	return (res);
 }
